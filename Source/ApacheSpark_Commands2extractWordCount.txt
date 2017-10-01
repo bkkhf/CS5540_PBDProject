@@ -1,0 +1,6 @@
+Command to load the text file:
+scala> val lines = sc.textFile("/home/student/Installations/TwitterProject/extractedHashTagURLs.txt")
+Command to split and count the values:
+scala> val count=lines.flatMap(_.split(" ")).map(word => (word,1)).reduceByKey(_+_)
+Command to write into a file:
+scala> tools.nsc.io.File("/home/student/bala.txt").writeAll(count.collect().mkString(","))
